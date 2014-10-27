@@ -81,6 +81,12 @@
     "identity:update_role": "rule:cloud_admin",
     "identity:delete_role": "rule:cloud_admin",
 
+    "identity:scim_get_role": "rule:cloud_admin or rule:admin_and_matching_user_domain_id",
+    "identity:scim_list_roles": "rule:cloud_admin or rule:admin_and_matching_user_domain_id",
+    "identity:scim_create_role": "rule:cloud_admin or rule:admin_and_matching_user_domain_id",
+    "identity:scim_update_role": "rule:cloud_admin or rule:admin_and_matching_user_domain_id",
+    "identity:scim_delete_role": "rule:cloud_admin or rule:admin_and_matching_user_domain_id",
+
     "domain_admin_for_grants": "rule:admin_required and (domain_id:%(domain_id)s or domain_id:%(target.project.domain_id)s)",
     "project_admin_for_grants": "rule:admin_required and project_id:%(project_id)s",
     "identity:check_grant": "rule:cloud_admin or rule:domain_admin_for_grants or rule:project_admin_for_grants",

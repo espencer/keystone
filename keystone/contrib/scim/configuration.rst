@@ -15,14 +15,37 @@ Enabling the extension:
 
 
 =======
-Hacking
+Testing
 =======
 
 Running functional tests
 
-    tox -e py27 keystone.tests.test_scim.UserCRUDTests
+    tox -e py27 keystone.tests.test_scim
 
 Running unit tests
 
     tox -e py27 keystone.tests.unit.contrib.scim
 
+=========
+Packaging
+=========
+
+Packaging creates RPM containing only the SCIM extension, ready to be deployed
+onto an existing Keystone installation (installation only tested on Redhad/Centos,
+building tested also on Mac OSX):
+
+    sh keystone-scim.sh
+
+==========
+Installing
+==========
+
+Just install the created RPM in previous step on top of an existing Keystone
+installation (RPM only works on Centos/Redhat)
+
+    sudo rpm -ivh keystone-scim*.rpm
+
+RPM installation automatically enables the SCIM extension, so no extra step
+is needed further than restarting the Keystone server.
+
+    sudo service openstack-keystone restart
